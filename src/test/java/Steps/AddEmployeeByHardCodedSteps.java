@@ -38,6 +38,7 @@ public class AddEmployeeByHardCodedSteps extends commonMethods {
     @When("user clicks on save button")
     public void user_clicks_on_save_button() {
         click(addemp.secondSaveButton);
+        System.out.println();
 //
 //        addemp.secondSaveButton.click();
 
