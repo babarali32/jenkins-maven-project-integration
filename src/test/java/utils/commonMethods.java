@@ -6,7 +6,6 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -24,13 +23,13 @@ public class commonMethods extends PageInitializer {
         configReader.readProperties(constants.PATH);
         String browser = configReader.getPropertyValue("browser");
         if (browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
-           // WebDriverManager.chromedriver().setup();
-          //  driver = new ChromeDriver();
+           // System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
             // these below three lines are for so that chrome browser can not open or close for jenkins
-            ChromeOptions chromeOptions=new ChromeOptions();
-            chromeOptions.setHeadless(true);
-            driver = new ChromeDriver(chromeOptions);
+//            ChromeOptions chromeOptions=new ChromeOptions();
+//            chromeOptions.setHeadless(true);
+//            driver = new ChromeDriver(chromeOptions);
         } else if (browser.equals("Firefox")) {//System.setProperty("webdriver.gecko.driver", "src/Driver/geckodriver.exe");
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
